@@ -10,7 +10,7 @@ def inputItemSwitcher(inputName):
         "TransferList" : ""
     }
     return translatedItem.get(inputName, inputName)
-def getInputIconList():
+def getInputComponentList():
     url =  "https://material-ui.com/components/container/"
 
     listOfInputComponents = []
@@ -64,34 +64,9 @@ def getInputIconList():
     return listOfInputComponents
 
 
-inputs = getInputIconList()
-for input in inputs:
-    print(input["componentName"])
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-    
-
-
-
-
-
-
-
-
-
-getInputIconList()
+# inputs = getInputComponentList()
+# for input in inputs:
+#     print(input["componentName"])
 
 
     
