@@ -24,7 +24,7 @@ By parsing the HTML of the documentation via a webscraper, I have extracted each
 ![](./assets/python/methodsScraped.png)
 ![](./assets/python/parametersScraped.png)
 
-##React
+## React
 By parsing the HTML of the documentation via webscraper, I have extracted each available input Component that a student can use from the MaterialUI library, its list of valid props, and an easy access link to that Component's documentation. 
 ### Database
 ![](./assets/react/reactUpgradeDatabase.png)
