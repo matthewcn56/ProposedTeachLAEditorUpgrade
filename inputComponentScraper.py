@@ -11,10 +11,14 @@ def inputItemSwitcher(inputName):
     }
     return translatedItem.get(inputName, inputName)
 def getInputComponentList():
-    url =  "https://material-ui.com/components/container/"
+    url =  "https://material-ui.com/components/container"
 
     listOfInputComponents = []
     page = requests.get(url)
+
+    #strip the container part of the url
+    url = url.replace("components/container", "")
+
     soup = BeautifulSoup(page.content, 'html.parser')
     soup = soup.find("html")
     soup = soup.find("body")
@@ -52,6 +56,8 @@ def getInputComponentList():
                         possibleInput = possibleInput.find("a", class_ = "MuiButtonBase-root")
                         inputLink = possibleInput['href']
                         inputLink = inputLink.rstrip("/")
+                        inputLink = inputLink.lstrip("/")
+                        inputLink = url + inputLink
                         # print(inputLink)
                         inputTitle = possibleInput.find("span", class_ = "MuiButton-label").text
                         inputTitle = inputTitle.replace(" ", "")

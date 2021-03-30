@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 def pathComponentSwitcher(path):
+    path.replace("https://material-ui.com/", "")
     strippedName = path.partition("components/")[2]
     strippedName = strippedName.rstrip("/")
     translatedComponent = {
@@ -20,14 +21,14 @@ def pathComponentSwitcher(path):
 
 def getValidProps(materialPath):
     validProps = []
-    url =  "https://material-ui.com" + materialPath
+    url =  materialPath
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     content = soup.find(id = "main-content")
     contentDivs = content.find_all("div")
     for contentDiv in contentDivs:
         codeContainer = contentDiv.find("div", class_ = "MuiCollapse-container")
-        print(codeContainer)
+        # print(codeContainer)
         if codeContainer is None:
             continue
         
@@ -72,14 +73,6 @@ def getValidProps(materialPath):
         
 
 
-props = getValidProps("/components/checkboxes")
+props = getValidProps("https://material-ui.com/components/radio-buttons")
 for prop in props:
     print(prop)
-
-# list = {""}
-# list["ford"].append("valid")
-# list["ford"].append("valid")
-# list["hello"].append("valid")
-# keys = list.keys
-# for key in keys:
-#     print(key)
