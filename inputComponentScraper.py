@@ -51,6 +51,7 @@ def getInputComponentList():
                     for possibleInput in possibleInputs:
                         possibleInput = possibleInput.find("a", class_ = "MuiButtonBase-root")
                         inputLink = possibleInput['href']
+                        inputLink = inputLink.rstrip("/")
                         # print(inputLink)
                         inputTitle = possibleInput.find("span", class_ = "MuiButton-label").text
                         inputTitle = inputTitle.replace(" ", "")

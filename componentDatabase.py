@@ -6,7 +6,7 @@ import firebase_admin.db
 import json
 from dbConfig import config
 
-icons = getInputComponentList()
+components = getInputComponentList()
 
 cred = credentials.Certificate(config["configPath"])
 
@@ -15,10 +15,10 @@ default_app = firebase_admin.initialize_app(cred, {
 })
 print (default_app.name)
 
-for icon in icons:
+for component in components:
     try:
-        path = firebase_admin.db.reference("MaterialUI/" + icon["componentName"])
-        path.set(icon["componentLink"])
+        path = firebase_admin.db.reference("MaterialUI/" + component["componentName"] +"/link")
+        path.set(component["componentLink"])
     except ValueError:
         print("Invalid Path!")
     except TypeError:
